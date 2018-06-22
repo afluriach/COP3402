@@ -1,0 +1,10 @@
+#!/bin/bash
+
+args=("$@")
+s=""
+
+for (( i=1; i<=$#; i++ )); do
+  s=$s"${args[$i]} "
+done
+
+echo $s

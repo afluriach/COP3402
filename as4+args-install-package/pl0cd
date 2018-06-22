@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]
+then
+echo input PL/0 program as argument.
+exit
+fi
+
+args=("$@")
+s=""
+
+for (( i=1; i<=$#; i++ )); do
+  s=$s"${args[$i]} "
+done
+
+echo $s
+
+rm -f tokens
+rm -f binary
+pl0-lex $1 tokens && pl0-codegen tokens binary && 
+echo "No errors, program is syntactically correct" && pl0-vm binary $s 
+rm -f tokens
+rm -f binary

@@ -1,0 +1,13 @@
+int in, out;
+procedure int fact(n);
+begin
+	if n=0 then return 1;
+	if n!= 0 then return n*fact(n-1);
+end;
+
+begin
+	read(in);
+	out := fact(in);
+	write(out);
+	
+end.

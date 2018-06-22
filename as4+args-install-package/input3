@@ -1,0 +1,16 @@
+int a;
+procedure int fact(n);
+begin
+	if n = 0 then return 1
+	else return n*fact(n-1);
+end;
+
+begin
+	in a;
+	while a >= 0 do
+	begin
+		a := fact(a);
+		out a;
+		in a;
+	end
+end.

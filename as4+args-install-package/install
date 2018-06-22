@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ ! -d ~/bin ]
+then 
+	mkdir ~/bin
+	echo "~/bin created"
+fi
+
+gcc -o ~/bin/pl0-codegen codegen.c
+gcc -o ~/bin/pl0-lex lex.c
+gcc -o ~/bin/pl0-vm vm.c
+cp pl0cd ~/bin/pl0cd
+chmod +x ~/bin/pl0cd 

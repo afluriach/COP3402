@@ -1,0 +1,17 @@
+int a, c, n;
+procedure void factorial;
+  begin
+	while c <= n do
+		begin
+			a:=a*c;
+			c:=c+1;
+		end;
+  end;
+begin
+	a := 1;
+	c := 2;
+	n := 3;
+	call factorial;
+	c := a;
+	n := a;
+end.

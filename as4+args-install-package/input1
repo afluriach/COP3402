@@ -1,0 +1,44 @@
+const a=2, b=3, d=5;
+int p, r, nPrimes, i, primes[30], lastPrint;
+procedure int mod(a,b);
+begin
+	return a - (a/b)*b;
+end;
+procedure int isPrime(p);
+int i, m;
+begin
+	i := 0;
+	while i < nPrimes do
+	begin
+		if mod(p, primes[i]) = 0 then return 0;
+		i := i + 1;
+	end;
+	return 1;	
+end;
+
+begin
+	nPrimes := 1;
+	primes[0] := 2;
+	i := 3;
+	lastPrint := 0;
+	while nPrimes < 30 do
+	begin
+		if nPrimes - lastPrint >= 100 then
+		begin
+			out nPrimes;
+			lastPrint := nPrimes;
+		end;
+		if isPrime(i) = 1 then
+		begin
+			primes[nPrimes] := i;
+			nPrimes := nPrimes +1;
+		end;
+		i := i + 1;
+	end;
+	i:=0;
+	while i < nPrimes do 
+	begin
+		out primes[i];
+		i := i + 1;
+	end
+end.

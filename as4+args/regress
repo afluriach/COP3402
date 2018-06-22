@@ -1,0 +1,10 @@
+#!/bin/bash
+gcc -o codegen codegen.c
+gcc -o vm vm.c
+gcc -o lex lex.c
+if [  ./pl0cd input1 -s || ./pl0cd input2 -sS 200 || ./pl0cd input3 -s || ./pl0cd input4 -s ]
+then
+echo "ERROR!"
+else
+echo "Pass."
+fi

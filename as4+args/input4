@@ -1,0 +1,16 @@
+int i;
+procedure int fibo(a);
+begin
+	if a = 0 then return 0;
+	if a = 1 then return 1;
+	if a > 1 then return fibo(a-1) + fibo(a-2);
+end;
+
+begin
+    i := 0;
+    while i < 20 do
+	begin
+		out fibo( i);
+		i := i + 1;
+	end
+end.

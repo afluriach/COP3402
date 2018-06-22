@@ -1,0 +1,37 @@
+int ans, target, modTarget, modBase, modResult, i, mod3, mod5;
+procedure sum;
+	int i, total;
+	begin
+		i := 1;
+		total := 0;
+		while i <= target
+		do begin
+			total := total+i;
+			i := i + 1;
+		end;
+		ans := total;
+	end;
+procedure mod;
+begin
+	modResult := modTarget - (modTarget/modBase)*modBase;
+end;
+
+begin
+	target := 100;
+	call sum;
+	i := 0;
+	while i <= 100
+	do begin
+		modTarget := i;
+		modBase :=3;
+		call mod;
+		if modResult != 0 then mod3 := 0;
+		if modResult =0 then mod3 := 1;
+		modBase := 5;
+		call mod;
+		if modResult != 0 then mod5 := 0;
+		if modResult =0 then mod5 := 1;
+		write(2*mod3 + mod5);
+		i := i + 1;
+	end
+end.

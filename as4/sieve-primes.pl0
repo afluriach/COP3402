@@ -1,0 +1,46 @@
+int p, r, primes[100], nPrimes, i, modResult, modL, modR;
+procedure mod;
+begin
+	modResult := modL - (modL/modR)*modR;
+end;
+procedure isPrime;
+int i;
+begin
+	i := 0;
+	modL := p;
+	while i < nPrimes do
+	begin
+		modR := primes[i];
+		r := 1;
+		call mod;
+		if modResult = 0 then
+		begin
+			r := 0;
+			i := 101;
+		end;
+		if modResult != 0 then i := i + 1;
+	end	
+end;
+
+begin
+	nPrimes := 1;
+	primes[0] := 2;
+	i := 3;
+	while nPrimes < 100 do
+	begin
+		p := i;
+		call isPrime;
+		if r = 1 then
+		begin
+			primes[nPrimes] := i;
+			nPrimes := nPrimes +1;
+		end;
+		if r = 0 then i := i + 1
+	end;
+	i:=0;
+	while i < nPrimes do 
+	begin
+		write(primes[i]);
+		i := i + 1
+	end
+end.
